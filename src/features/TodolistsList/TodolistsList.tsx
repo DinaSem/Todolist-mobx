@@ -38,29 +38,29 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
         taskStore.deleteTask(id,todolistId)
     }, [taskStore])
 
-    const addTask = useCallback(function (title: string, todolistId: string) {
-        taskStore.addTask(title,todolistId)
-    }, [taskStore])
+    // const addTask = useCallback(function (title: string, todolistId: string) {
+    //     taskStore.addTask(title,todolistId)
+    // }, [taskStore])
 
-    const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
-        taskStore.updateTask(id, {status},todolistId)
-    }, [taskStore])
+    // const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
+    //     taskStore.updateTask(id, {status},todolistId)
+    // }, [taskStore])
 
-    const changeTaskTitle = useCallback(function (id: string, title: string, todolistId: string) {
-        taskStore.updateTask(id, {title},todolistId)
-    }, [taskStore])
+    // const changeTaskTitle = useCallback(function (id: string, title: string, todolistId: string) {
+    //     taskStore.updateTask(id, {title},todolistId)
+    // }, [taskStore])
 
-    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        todoStore.changeTodolistFilter(todolistId,value)
-    }, [])
-
-    const removeTodolist = useCallback(function (id: string) {
-        todoStore.deleteTodo(id)
-    }, [todoStore])
-
-    const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        todoStore.changeTodolistTitle(id,title)
-    }, [todoStore])
+    // const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
+    //     todoStore.changeTodolistFilter(todolistId,value)
+    // }, [])
+    //
+    // const removeTodolist = useCallback(function (id: string) {
+    //     todoStore.deleteTodo(id)
+    // }, [todoStore])
+    //
+    // const changeTodolistTitle = useCallback(function (id: string, title: string) {
+    //     todoStore.changeTodolistTitle(id,title)
+    // }, [todoStore])
 
     const addTodolist = useCallback((title: string) => {
         todoStore.addTodo(title)
@@ -85,13 +85,6 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
                             <Todolist
                                 todolist={tl}
                                 tasks={allTodolistTasks}
-                                removeTask={removeTask}
-                                changeFilter={changeFilter}
-                                addTask={addTask}
-                                changeTaskStatus={changeStatus}
-                                removeTodolist={removeTodolist}
-                                changeTaskTitle={changeTaskTitle}
-                                changeTodolistTitle={changeTodolistTitle}
                                 demo={demo}
                             />
                         </Paper>

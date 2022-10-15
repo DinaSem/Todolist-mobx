@@ -13,19 +13,14 @@ import {useRootStore} from "../../../app/stores/RootStateContext";
 type PropsType = {
     todolist: TodolistDomainType
     tasks: Array<TaskType>
-    changeFilter: (value: FilterValuesType, todolistId: string) => void
-    addTask: (title: string, todolistId: string) => void
-    changeTaskStatus: (id: string, status: TaskStatuses, todolistId: string) => void
-    changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
-    removeTask: (taskId: string, todolistId: string) => void
-    removeTodolist: (id: string) => void
-    changeTodolistTitle: (id: string, newTitle: string) => void
     demo?: boolean
 }
 
 export const Todolist = observer(function ({demo = false, ...props}: PropsType) {
     console.log('Todolist called')
+    const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
+    const {authStore} = useRootStore()
 
     useEffect(() => {
         if (demo) {
@@ -33,23 +28,28 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
         }
         taskStore.fetchTasks(props.todolist.id)
 
-
     }, [])
 
-    const addTask = useCallback((title: string) => {
-        props.addTask(title, props.todolist.id)
-    }, [props.addTask, props.todolist.id])
+    const addTask = useCallback(function (title: string) {
+        taskStore.addTask(title,props.todolist.id)
+    }, [taskStore])
 
-    const removeTodolist = () => {
-        props.removeTodolist(props.todolist.id)
-    }
-    const changeTodolistTitle = useCallback((title: string) => {
-        props.changeTodolistTitle(props.todolist.id, title)
-    }, [props.todolist.id, props.changeTodolistTitle])
+    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
+        todoStore.changeTodolistFilter(todolistId,value)
+    }, [todoStore])
 
-    const onAllClickHandler = useCallback(() => props.changeFilter('all', props.todolist.id), [props.todolist.id, props.changeFilter])
-    const onActiveClickHandler = useCallback(() => props.changeFilter('active', props.todolist.id), [props.todolist.id, props.changeFilter])
-    const onCompletedClickHandler = useCallback(() => props.changeFilter('completed', props.todolist.id), [props.todolist.id, props.changeFilter])
+    const removeTodolist = useCallback(function (id: string) {
+        todoStore.deleteTodo(id)
+    }, [todoStore])
+
+    const changeTodolistTitle = useCallback(function (id: string, title: string) {
+        todoStore.changeTodolistTitle(id,title)
+    }, [todoStore])
+
+
+    const onAllClickHandler = useCallback(() => changeFilter('all', props.todolist.id), [props.todolist.id, changeFilter])
+    const onActiveClickHandler = useCallback(() => changeFilter('active', props.todolist.id), [props.todolist.id, changeFilter])
+    const onCompletedClickHandler = useCallback(() => changeFilter('completed', props.todolist.id), [props.todolist.id, changeFilter])
 
 
     let tasksForTodolist = props.tasks
@@ -63,9 +63,9 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
     }
 
     return <div>
-        <Link to={'todolist'}>
-        <h3><EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
-            <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
+        {/*<Link to={'todolist'}>*/}
+        <h3><EditableSpan value={props.todolist.title} onChange={()=>changeTodolistTitle(props.todolist.id,props.todolist.title)}/>
+            <IconButton onClick={()=>removeTodolist(props.todolist.id)} disabled={props.todolist.entityStatus === 'loading'}>
                 <Delete/>
             </IconButton>
         </h3>
@@ -73,9 +73,9 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
         <div>
             {
                 tasksForTodolist?.map(t => <Task key={t.id} task={t} todolistId={props.todolist.id}
-                                                removeTask={props.removeTask}
-                                                changeTaskTitle={props.changeTaskTitle}
-                                                changeTaskStatus={props.changeTaskStatus}
+                                                // removeTask={props.removeTask}
+                                                // changeTaskTitle={props.changeTaskTitle}
+                                                // changeTaskStatus={props.changeTaskStatus}
                 />)
             }
         </div>
@@ -94,7 +94,7 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
                     color={'secondary'}>Completed
             </Button>
         </div>
-        </Link>
+        {/*</Link>*/}
     </div>
 })
 
