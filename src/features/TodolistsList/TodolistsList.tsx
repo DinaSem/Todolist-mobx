@@ -25,11 +25,8 @@ type PropsType = {
 }
 
 export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
-    // const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
-    // const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
-    const dispatch = useDispatch()
     const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
     const todolists = todoStore.initialState.todos
@@ -39,50 +36,40 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
         if (demo || !isLoggedIn) {
             return;
         }
-        // const thunk = fetchTodolistsTC()
-        // dispatch(thunk)
         todoStore.fetchTodo()
     }, [])
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
-        const thunk = removeTaskTC(id, todolistId)
-        dispatch(thunk)
-    }, [])
+        taskStore.deleteTask(id,todolistId)
+    }, [taskStore])
 
     const addTask = useCallback(function (title: string, todolistId: string) {
-        const thunk = addTaskTC(title, todolistId)
-        dispatch(thunk)
-    }, [])
+        taskStore.addTask(title,todolistId)
+    }, [taskStore])
 
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
-        const thunk = updateTaskTC(id, {status}, todolistId)
-        dispatch(thunk)
-    }, [])
+        taskStore.updateTask(id, {status},todolistId)
+    }, [taskStore])
 
-    const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        const thunk = updateTaskTC(id, {title: newTitle}, todolistId)
-        dispatch(thunk)
-    }, [])
+    const changeTaskTitle = useCallback(function (id: string, title: string, todolistId: string) {
+        taskStore.updateTask(id, {title},todolistId)
+    }, [taskStore])
 
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        const action = changeTodolistFilterAC(todolistId, value)
-        dispatch(action)
+        todoStore.changeTodolistFilter(todolistId,value)
     }, [])
 
     const removeTodolist = useCallback(function (id: string) {
-        const thunk = removeTodolistTC(id)
-        dispatch(thunk)
-    }, [])
+        todoStore.deleteTodo(id)
+    }, [todoStore])
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        const thunk = changeTodolistTitleTC(id, title)
-        dispatch(thunk)
-    }, [])
+        todoStore.changeTodolistTitle(id,title)
+    }, [todoStore])
 
     const addTodolist = useCallback((title: string) => {
-        const thunk = addTodolistTC(title)
-        dispatch(thunk)
-    }, [dispatch])
+        todoStore.addTodo(title)
+    }, [todoStore])
 
 
     if (!isLoggedIn) {
@@ -95,7 +82,7 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
         </Grid>
         <Grid container spacing={3}>
             {
-                todoStore.initialState.todos.map(tl => {
+                todolists.map(tl => {
                     let allTodolistTasks = tasks[tl.id]
 
                     return <Grid item key={tl.id}>
