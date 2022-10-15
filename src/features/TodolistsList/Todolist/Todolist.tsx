@@ -6,8 +6,7 @@ import {Delete} from '@material-ui/icons'
 import {Task} from './Task/Task'
 import {TaskStatuses, TaskType} from '../../../api/todolists-api'
 import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
-import {useDispatch} from 'react-redux'
-import {fetchTasksTC} from '../tasks-reducer'
+import { Link } from 'react-router-dom'
 import {observer} from "mobx-react";
 import {useRootStore} from "../../../app/stores/RootStateContext";
 
@@ -28,14 +27,10 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
     console.log('Todolist called')
     const {taskStore} = useRootStore()
 
-
-    const dispatch = useDispatch()
     useEffect(() => {
         if (demo) {
             return
         }
-        // const thunk = fetchTasksTC(props.todolist.id)
-        // dispatch(thunk)
         taskStore.fetchTasks(props.todolist.id)
 
 
@@ -68,6 +63,7 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
     }
 
     return <div>
+        <Link to={'todolist'}>
         <h3><EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
             <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
                 <Delete/>
@@ -98,6 +94,7 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
                     color={'secondary'}>Completed
             </Button>
         </div>
+        </Link>
     </div>
 })
 

@@ -20,22 +20,27 @@ class AuthStore {
         isLoggedIn: false
     }
 
-    async setIsLoggedIn(data: LoginParamsType) {
+    setIsLoggedIn(value: boolean){
+    this.initialState = {...this.initialState,isLoggedIn:value}
+
+    }
+
+    async login(data: LoginParamsType) {
         try {
             const res = await authAPI.login(data)
             if (res.data.resultCode === 0) {
-                this.initialState.isLoggedIn =  true;
+                this.setIsLoggedIn(true)
             }
         } catch (e) {
         } finally {
         }
     }
 
-    async setIsLoggedOut() {
+    async loginOut() {
         try {
             const res = await authAPI.logout()
             if (res.data.resultCode === 0) {
-                this.initialState.isLoggedIn = false;
+                this.setIsLoggedIn(false)
             }
         } catch (e) {
         } finally {

@@ -19,6 +19,8 @@ import {initializeAppTC, RequestStatusType} from './app-reducer'
 import {BrowserRouter, Route} from 'react-router-dom'
 import {Login} from '../features/Login/Login'
 import {logoutTC} from '../features/Login/auth-reducer'
+import {Todolist} from "../features/TodolistsList/Todolist/Todolist";
+import {Task} from "../features/TodolistsList/Todolist/Task/Task";
 
 type PropsType = {
     demo?: boolean
@@ -63,7 +65,9 @@ function App({demo = false}: PropsType) {
                 </AppBar>
                 <Container fixed>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
-                    <Route path={'/login'} render={() => <Login/>}/>
+                    <Route path={'login'} render={() => <Login/>}/>
+                    <Route path={'todolist/:id'} render={() => <Todolist/>}/>
+                    {/*<Route path={'task/:id'} render={() => <Task>}/>*/}
                 </Container>
             </div>
         </BrowserRouter>

@@ -2,6 +2,7 @@ import {makeAutoObservable} from "mobx";
 import {authAPI} from "../../api/todolists-api";
 import {createContext, FC, useContext} from "react";
 import React from 'react'
+import {useRootStore} from "./RootStateContext";
 
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 export type InitialStateType = {
@@ -10,17 +11,22 @@ export type InitialStateType = {
     isInitialized: boolean
 }
 
+
 class AppStore {
+
+
 
     constructor() {
         makeAutoObservable(this)
     }
+
 
     initialState: InitialStateType = {
         status: 'idle',
         error: null,
         isInitialized: false
     }
+
 
     setAppStatus(status: RequestStatusType) {
         this.initialState.status = status;
@@ -36,6 +42,8 @@ class AppStore {
             if (res.data.resultCode === 0) {
                 this.initialState.isInitialized = true;
             }
+            const {authStore} = useRootStore()
+            authStore.setIsLoggedIn(true)
         } catch (e) {
 
         } finally {

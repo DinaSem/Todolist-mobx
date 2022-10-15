@@ -2,15 +2,8 @@ import React, {useCallback, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from '../../app/store'
 import {
-    addTodolistTC,
-    changeTodolistFilterAC,
-    changeTodolistTitleTC,
-    fetchTodolistsTC,
     FilterValuesType,
-    removeTodolistTC,
-    TodolistDomainType
 } from './todolists-reducer'
-import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './tasks-reducer'
 import {TaskStatuses} from '../../api/todolists-api'
 import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
@@ -18,7 +11,7 @@ import {Todolist} from './Todolist/Todolist'
 import { Redirect } from 'react-router-dom'
 import {observer} from "mobx-react";
 import {useRootStore} from "../../app/stores/RootStateContext";
-import TodoStore from "../../app/stores/TodoStore";
+import AuthStore from "../../app/stores/AuthStore";
 
 type PropsType = {
     demo?: boolean
@@ -29,8 +22,10 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
+    const {authStore} = useRootStore()
     const todolists = todoStore.initialState.todos
     const tasks = taskStore.initialState.tasks
+    // const isLoggedIn = authStore.initialState.isLoggedIn
 
     useEffect( () => {
         if (demo || !isLoggedIn) {

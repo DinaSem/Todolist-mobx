@@ -25,7 +25,7 @@ export const Task = React.memo((props: TaskPropsType) => {
     }, [props.task.id, props.todolistId]);
 
     return <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
-        {/*<Link to={'task'}>*/}
+        <Link to={'smw'}>
         <Checkbox
             checked={props.task.status === TaskStatuses.Completed}
             color="primary"
@@ -36,6 +36,6 @@ export const Task = React.memo((props: TaskPropsType) => {
         <IconButton onClick={onClickHandler}>
             <Delete/>
         </IconButton>
-            {/*</Link>*/}
+            </Link>
     </div>
 })
