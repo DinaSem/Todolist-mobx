@@ -2,6 +2,7 @@ import {makeAutoObservable} from "mobx";
 import {todolistsAPI, TodolistType} from "../../api/todolists-api";
 import {RequestStatusType} from "../app-reducer";
 import { FilterValuesType} from "../../features/TodolistsList/todolists-reducer";
+import {useRootStore} from "./RootStateContext";
 
 export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType
@@ -19,9 +20,11 @@ class TodoStore {
 
     async fetchTodo() {
         const res = await todolistsAPI.getTodolists()
+
+
         if (res.data && res.data.length > 0) {
             this.initialState.todos = res.data.map(d => ({...d, filter: 'all', entityStatus: 'idle'}))
-            console.log('data', JSON.stringify(this.initialState.todos))
+            // this.initialState.todos.forEach(tl=>taskStore.fetchTasks(tl.id))
         }
     }
 

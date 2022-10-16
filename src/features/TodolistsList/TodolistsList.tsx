@@ -79,9 +79,12 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
             {
                 todolists.map(tl => {
                     let allTodolistTasks = tasks[tl.id]
+                    const onClickRedirectToTodo = () => {
+                        return <Redirect to={'todolistItem/:id'} />
+                    }
 
-                    return <Grid item key={tl.id}>
-                        <Paper style={{padding: '10px'}}>
+                    return <Grid item key={tl.id} >
+                        <Paper style={{padding: '10px'}} onClick={onClickRedirectToTodo}>
                             <Todolist
                                 todolist={tl}
                                 tasks={allTodolistTasks}

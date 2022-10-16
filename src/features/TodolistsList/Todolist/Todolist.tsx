@@ -63,8 +63,8 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
     }
 
     return <div>
-        {/*<Link to={'todolist'}>*/}
-        <h3><EditableSpan value={props.todolist.title} onChange={()=>changeTodolistTitle(props.todolist.id,props.todolist.title)}/>
+        <Link to={`todolistItem/${props.todolist.id}`}>
+        <h3><EditableSpan  value={props.todolist.title} onChange={()=>changeTodolistTitle(props.todolist.id,props.todolist.title)}/>
             <IconButton onClick={()=>removeTodolist(props.todolist.id)} disabled={props.todolist.entityStatus === 'loading'}>
                 <Delete/>
             </IconButton>
@@ -94,7 +94,7 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
                     color={'secondary'}>Completed
             </Button>
         </div>
-        {/*</Link>*/}
+        </Link>
     </div>
 })
 

@@ -21,6 +21,8 @@ import {Login} from '../features/Login/Login'
 import {logoutTC} from '../features/Login/auth-reducer'
 import {Todolist} from "../features/TodolistsList/Todolist/Todolist";
 import {Task} from "../features/TodolistsList/Todolist/Task/Task";
+import TodolistItem from "../features/TodolistsList/TodolistItem";
+import {useRootStore} from "./stores/RootStateContext";
 
 type PropsType = {
     demo?: boolean
@@ -31,10 +33,13 @@ function App({demo = false}: PropsType) {
     const isInitialized = useSelector<AppRootStateType, boolean>((state) => state.app.isInitialized)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
+    const {todoStore} = useRootStore()
 
     useEffect(() => {
         dispatch(initializeAppTC())
     }, [])
+
+
 
     const logoutHandler = useCallback(() => {
         dispatch(logoutTC())
@@ -65,8 +70,8 @@ function App({demo = false}: PropsType) {
                 </AppBar>
                 <Container fixed>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
-                    <Route path={'login'} render={() => <Login/>}/>
-                    {/*<Route path={'todolist/:id'} render={() => <Todolist/>}/>*/}
+                    <Route path={'/login'} render={() => <Login/>}/>
+                    <Route path={'/todolistItem/:id'} render={() => <TodolistItem/>}/>
                     {/*<Route path={'task/:id'} render={() => <Task>}/>*/}
                 </Container>
             </div>
