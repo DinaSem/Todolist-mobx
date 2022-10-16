@@ -23,6 +23,7 @@ import {Todolist} from "../features/TodolistsList/Todolist/Todolist";
 import {Task} from "../features/TodolistsList/Todolist/Task/Task";
 import TodolistItem from "../features/TodolistsList/TodolistItem";
 import {useRootStore} from "./stores/RootStateContext";
+import TaskItem from "../features/TodolistsList/Todolist/Task/TaskItem";
 
 type PropsType = {
     demo?: boolean
@@ -71,8 +72,8 @@ function App({demo = false}: PropsType) {
                 <Container fixed>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
-                    <Route path={'/todolistItem/:id'} render={() => <TodolistItem/>}/>
-                    {/*<Route path={'task/:id'} render={() => <Task>}/>*/}
+                    <Route exact path={'/todolistItem/:todoId'} render={() => <TodolistItem/>}/>
+                    <Route exact path={'/todolistItem/:todoId/taskItem/:taskId'} render={() => <TaskItem/>}/>
                 </Container>
             </div>
         </BrowserRouter>

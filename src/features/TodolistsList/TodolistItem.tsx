@@ -7,23 +7,23 @@ import {observer} from "mobx-react";
 
 
 const TodolistItem = observer(() => {
-    const {id} = useParams()//{id: 'dwakojiefuorifjoetib'}
+    const {todoId} = useParams()//{id: 'dwakojiefuorifjoetib'}
     const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
-    console.log(JSON.stringify(taskStore))
-    console.log(id)
+    // console.log(JSON.stringify(taskStore))
+    // console.log(id)
     useEffect( () => {
-        taskStore.fetchTasks(id)
+        taskStore.fetchTasks(todoId)
     }, [])
 
     const todolists = todoStore.initialState.todos
     const tasks = taskStore.initialState.tasks
     // console.log('todos, ', todolists)
-    const todolistsItem = todolists?.find(t=> t.id === id)
-    const tasksTodolistsItem = tasks[id]
+    const todolistsItem = todolists?.find(t=> t.id === todoId)
+    const tasksTodolistsItem = tasks[todoId]
 
     // console.log('todo', todolistsItem);
-    console.log('task, ', tasks);
+    // console.log('todolists, ', todolists);
 
 
     return (

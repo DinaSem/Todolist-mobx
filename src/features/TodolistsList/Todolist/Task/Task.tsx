@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback} from 'react'
+import React, {ChangeEvent, useCallback, useEffect} from 'react'
 import {Checkbox, IconButton} from '@material-ui/core'
 import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
 import {Delete} from '@material-ui/icons'
@@ -16,6 +16,8 @@ export const Task = React.memo((props: TaskPropsType) => {
     const {taskStore} = useRootStore()
     const {authStore} = useRootStore()
     // const onClickHandler = useCallback(() => props.removeTask(props.task.id, props.todolistId), [props.task.id, props.todolistId]);
+
+
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
         taskStore.deleteTask(id,todolistId)
@@ -41,7 +43,6 @@ export const Task = React.memo((props: TaskPropsType) => {
     }, [props.task.id, props.todolistId])
 
     return <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
-        {/*<Link to={'smw'}>*/}
         <Checkbox
             checked={props.task.status === TaskStatuses.Completed}
             color="primary"
@@ -52,6 +53,5 @@ export const Task = React.memo((props: TaskPropsType) => {
         <IconButton onClick={()=>removeTask(props.task.id, props.todolistId)}>
             <Delete/>
         </IconButton>
-            {/*</Link>*/}
     </div>
 })

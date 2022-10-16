@@ -12,6 +12,7 @@ import { Redirect } from 'react-router-dom'
 import {observer} from "mobx-react";
 import {useRootStore} from "../../app/stores/RootStateContext";
 import AuthStore from "../../app/stores/AuthStore";
+import { Link } from 'react-router-dom'
 
 type PropsType = {
     demo?: boolean
@@ -85,11 +86,13 @@ export const TodolistsList: React.FC<PropsType> = observer(({demo = false}) => {
 
                     return <Grid item key={tl.id} >
                         <Paper style={{padding: '10px'}} onClick={onClickRedirectToTodo}>
+                            <Link to={`todolistItem/${tl.id}`}>
                             <Todolist
                                 todolist={tl}
                                 tasks={allTodolistTasks}
                                 demo={demo}
                             />
+                            </Link>
                         </Paper>
                     </Grid>
                 })

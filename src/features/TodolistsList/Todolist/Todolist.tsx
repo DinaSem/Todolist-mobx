@@ -63,7 +63,6 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
     }
 
     return <div>
-        <Link to={`todolistItem/${props.todolist.id}`}>
         <h3><EditableSpan  value={props.todolist.title} onChange={()=>changeTodolistTitle(props.todolist.id,props.todolist.title)}/>
             <IconButton onClick={()=>removeTodolist(props.todolist.id)} disabled={props.todolist.entityStatus === 'loading'}>
                 <Delete/>
@@ -72,11 +71,20 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
         <AddItemForm addItem={addTask} disabled={props.todolist.entityStatus === 'loading'}/>
         <div>
             {
-                tasksForTodolist?.map(t => <Task key={t.id} task={t} todolistId={props.todolist.id}
-                                                // removeTask={props.removeTask}
-                                                // changeTaskTitle={props.changeTaskTitle}
-                                                // changeTaskStatus={props.changeTaskStatus}
-                />)
+                tasksForTodolist?.map(t =>{
+
+                   // return <Link to={`taskItem/${props.todolist.id}`}>
+                   // @ts-ignore
+                    return <Link to={`/todolistItem/${props.todolist.id}/taskItem/${t.id}`}>
+
+                    <Task key={t.id} task={t} todolistId={props.todolist.id}
+                        // removeTask={props.removeTask}
+                        // changeTaskTitle={props.changeTaskTitle}
+                        // changeTaskStatus={props.changeTaskStatus}
+                    />
+                   </Link>
+
+                })
             }
         </div>
         <div style={{paddingTop: '10px'}}>
@@ -94,7 +102,6 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
                     color={'secondary'}>Completed
             </Button>
         </div>
-        </Link>
     </div>
 })
 
