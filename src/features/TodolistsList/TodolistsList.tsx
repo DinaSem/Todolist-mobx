@@ -30,7 +30,8 @@ export const TodolistsList = observer(() => {
     if (!isLoggedIn) {
         return <Redirect to={"/login"} />
     }
-    return <div >
+    return <div>
+
         <Grid container style={{padding: '20px'}}>
             <AddItemForm addItem={addTodolist}/>
         </Grid>
@@ -44,6 +45,7 @@ export const TodolistsList = observer(() => {
 
                     return <Grid item key={tl.id} >
                         <Paper style={{padding: '10px'}} onClick={onClickRedirectToTodo}>
+
                             <Link to={`todolistItem/${tl.id}`}>
                             <Todolist
                                 todolist={tl}
@@ -55,5 +57,6 @@ export const TodolistsList = observer(() => {
                 })
             }
         </Grid>
+
     </div>
 })

@@ -1,6 +1,6 @@
 {
-  "homepage": "https://github.com/DinaSem/Todolost-mobx",
   "name": "todo-mobx",
+  "homepage": "https://DinaSem.github.io/Todolost-mobx",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
