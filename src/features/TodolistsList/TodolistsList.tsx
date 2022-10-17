@@ -18,9 +18,9 @@ export const TodolistsList = observer(() => {
     const tasks = taskStore.initialState.tasks
     // const isLoggedIn = authStore.initialState.isLoggedIn
 
-    useEffect( () => {
-        todoStore.fetchTodo()
-    }, [todoStore])
+    // useEffect( () => {
+    //     todoStore.fetchTodo()
+    // }, [todoStore])
 
     const addTodolist = useCallback((title: string) => {
         todoStore.addTodo(title)

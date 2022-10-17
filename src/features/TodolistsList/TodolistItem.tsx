@@ -17,8 +17,8 @@ const TodolistItem = observer(() => {
     const tasks = taskStore.initialState.tasks
     const todolistsItem = todolists?.find(t=> t.id === todoId)
     const tasksTodolistsItem = tasks[todoId]
-
-
+    console.log(todolistsItem)
+    console.log(tasks)
     return (
         <div style={{maxHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
             {

@@ -6,13 +6,16 @@ import {store} from './app/store';
 import {Provider} from 'react-redux';
 import {RootStateProvider} from "./app/stores/RootStateContext";
 import AppAntD from "./app/AppAntD";
+import {HashRouter} from "react-router-dom";
 
 ReactDOM.render(
+    <HashRouter>
     <Provider store={store}>
     <RootStateProvider>
         <AppAntD/>
     </RootStateProvider>
 </Provider>
+    </HashRouter>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

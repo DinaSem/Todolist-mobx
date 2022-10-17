@@ -43,11 +43,11 @@ const AppAntD = observer(() => {
         </div>
     }
 
-    return (<div  style={{maxHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
+    return (<div  style={{minHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
             <Layout className="layout">
                 <Header style={{display:'inline-flex',alignItems:'center'}} >
                     <div className="logo"/>
-                    {/*<div style={{color:'white', margin:'0 20px'}}>Home</div>*/}
+                    <Link to={'/'} style={{color:'white', margin:'0 20px'}}>Home</Link>
 
                     {isLoggedIn && <Button color="inherit" onClick={logoutHandler}>Log out</Button>}
 
@@ -55,7 +55,7 @@ const AppAntD = observer(() => {
                 </Header>
                 <Content style={{padding: '0 50px',minHeight:'80vh'}}>
                     <div className="site-layout-content">
-                        <BrowserRouter>
+
                             <div className="App">
                                 <ErrorSnackbar/>
                                 <Route exact path={'/'} render={() => <TodolistsList/>}/>
@@ -64,8 +64,6 @@ const AppAntD = observer(() => {
                                 <Route exact path={'/todolistItem/:todoId/taskItem/:taskId'}
                                        render={() => <TaskItem/>}/>
                             </div>
-                        </BrowserRouter>
-
                     </div>
                 </Content>
                 <Footer

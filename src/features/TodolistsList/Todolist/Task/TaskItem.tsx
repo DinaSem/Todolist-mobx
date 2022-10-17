@@ -11,14 +11,14 @@ const TaskItem = observer(() => {
     // console.log(JSON.stringify(taskStore))
     // console.log(id)
     useEffect( () => {
-        taskStore.fetchTasks(taskId)
+        taskStore.fetchTasks(todoId)
     }, [taskStore])
 
     const tasks = taskStore.initialState.tasks
 
     const todoTasks = tasks[todoId]
 
-    const taskItem = todoTasks.find(task => task.id === taskId)
+    const taskItem = todoTasks?.find(task => task.id === taskId)
 
 
     return (

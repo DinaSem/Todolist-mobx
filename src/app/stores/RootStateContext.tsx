@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import TaskStore from "./TaskStore";
 import AppStore from "./AppStore";
 import AuthStore from "./AuthStore";
 import TodoStore from "./TodoStore";
+import {useParams} from "react-router-dom";
 
 
 type TRootStateContext = {
@@ -21,7 +22,12 @@ export const stores = {
     authStore: new AuthStore(),
 }
 
+
+
 export const RootStateProvider: React.FC<React.PropsWithChildren<{}>> = ({children}) => {
+    useEffect( () => {
+        stores.todoStore.fetchTodo()
+    }, [stores.todoStore])
     return (
         <RootStateContext.Provider value={stores}>
             {children}
