@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/DinaSem/Todolost-mobx/static/css/main.5caf4ceb.chunk.css",
-    "main.js": "/DinaSem/Todolost-mobx/static/js/main.f418cb18.chunk.js",
-    "main.js.map": "/DinaSem/Todolost-mobx/static/js/main.f418cb18.chunk.js.map",
-    "runtime-main.js": "/DinaSem/Todolost-mobx/static/js/runtime-main.2c1bb960.js",
-    "runtime-main.js.map": "/DinaSem/Todolost-mobx/static/js/runtime-main.2c1bb960.js.map",
-    "static/css/2.680bc00d.chunk.css": "/DinaSem/Todolost-mobx/static/css/2.680bc00d.chunk.css",
-    "static/js/2.4ca4cef5.chunk.js": "/DinaSem/Todolost-mobx/static/js/2.4ca4cef5.chunk.js",
-    "static/js/2.4ca4cef5.chunk.js.map": "/DinaSem/Todolost-mobx/static/js/2.4ca4cef5.chunk.js.map",
-    "index.html": "/DinaSem/Todolost-mobx/index.html",
-    "precache-manifest.c6a7671b5a8c6bd07ec30ba6984cee61.js": "/DinaSem/Todolost-mobx/precache-manifest.c6a7671b5a8c6bd07ec30ba6984cee61.js",
-    "service-worker.js": "/DinaSem/Todolost-mobx/service-worker.js",
-    "static/css/2.680bc00d.chunk.css.map": "/DinaSem/Todolost-mobx/static/css/2.680bc00d.chunk.css.map",
-    "static/css/main.5caf4ceb.chunk.css.map": "/DinaSem/Todolost-mobx/static/css/main.5caf4ceb.chunk.css.map",
-    "static/js/2.4ca4cef5.chunk.js.LICENSE.txt": "/DinaSem/Todolost-mobx/static/js/2.4ca4cef5.chunk.js.LICENSE.txt"
+    "main.css": "/Todolost-mobx/static/css/main.5caf4ceb.chunk.css",
+    "main.js": "/Todolost-mobx/static/js/main.fb86e8ca.chunk.js",
+    "main.js.map": "/Todolost-mobx/static/js/main.fb86e8ca.chunk.js.map",
+    "runtime-main.js": "/Todolost-mobx/static/js/runtime-main.86ff9abc.js",
+    "runtime-main.js.map": "/Todolost-mobx/static/js/runtime-main.86ff9abc.js.map",
+    "static/css/2.680bc00d.chunk.css": "/Todolost-mobx/static/css/2.680bc00d.chunk.css",
+    "static/js/2.2cd050d8.chunk.js": "/Todolost-mobx/static/js/2.2cd050d8.chunk.js",
+    "static/js/2.2cd050d8.chunk.js.map": "/Todolost-mobx/static/js/2.2cd050d8.chunk.js.map",
+    "index.html": "/Todolost-mobx/index.html",
+    "precache-manifest.433a4a47fabb8c9cc447a801247beefa.js": "/Todolost-mobx/precache-manifest.433a4a47fabb8c9cc447a801247beefa.js",
+    "service-worker.js": "/Todolost-mobx/service-worker.js",
+    "static/css/2.680bc00d.chunk.css.map": "/Todolost-mobx/static/css/2.680bc00d.chunk.css.map",
+    "static/css/main.5caf4ceb.chunk.css.map": "/Todolost-mobx/static/css/main.5caf4ceb.chunk.css.map",
+    "static/js/2.2cd050d8.chunk.js.LICENSE.txt": "/Todolost-mobx/static/js/2.2cd050d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2c1bb960.js",
+    "static/js/runtime-main.86ff9abc.js",
     "static/css/2.680bc00d.chunk.css",
-    "static/js/2.4ca4cef5.chunk.js",
+    "static/js/2.2cd050d8.chunk.js",
     "static/css/main.5caf4ceb.chunk.css",
-    "static/js/main.f418cb18.chunk.js"
+    "static/js/main.fb86e8ca.chunk.js"
   ]
 }
