@@ -23,11 +23,10 @@ export const Login = () => {
                     password: 'Password is required'
                 }
             }
-
         },
         initialValues: {
-            email: '',
-            password: '',
+            email: 'neispravimayas1@gmail.com',
+            password: 'D.r.semenova216',
             rememberMe: false
         },
         onSubmit: values => {

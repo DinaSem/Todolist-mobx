@@ -1,7 +1,5 @@
 import {makeAutoObservable} from "mobx";
 import {authAPI} from "../../api/todolists-api";
-import {createContext, FC, useContext} from "react";
-import React from 'react'
 import {useRootStore} from "./RootStateContext";
 
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -13,8 +11,6 @@ export type InitialStateType = {
 
 
 class AppStore {
-
-
 
     constructor() {
         makeAutoObservable(this)

@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import App from './app/App';
 import {store} from './app/store';
 import {Provider} from 'react-redux';
-import {RootStateProvider, stores} from "./app/stores/RootStateContext";
+import {RootStateProvider} from "./app/stores/RootStateContext";
+import AppAntD from "./app/AppAntD";
 
 ReactDOM.render(
     <Provider store={store}>
     <RootStateProvider>
-        <App/>
+        <AppAntD/>
     </RootStateProvider>
 </Provider>
     , document.getElementById('root'));

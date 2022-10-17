@@ -4,34 +4,26 @@ import {Todolist} from "./Todolist/Todolist";
 import {useRootStore} from "../../app/stores/RootStateContext";
 import {observer} from "mobx-react";
 
-
-
 const TodolistItem = observer(() => {
-    const {todoId} = useParams()//{id: 'dwakojiefuorifjoetib'}
+    const {todoId} = useParams<{todoId:string}>()//{id: 'dwakojiefuorifjoetib'}
     const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
-    // console.log(JSON.stringify(taskStore))
-    // console.log(id)
+
     useEffect( () => {
         taskStore.fetchTasks(todoId)
-    }, [])
+    }, [taskStore, todoId])
 
     const todolists = todoStore.initialState.todos
     const tasks = taskStore.initialState.tasks
-    // console.log('todos, ', todolists)
     const todolistsItem = todolists?.find(t=> t.id === todoId)
     const tasksTodolistsItem = tasks[todoId]
 
-    // console.log('todo', todolistsItem);
-    // console.log('todolists, ', todolists);
-
 
     return (
-        <div>
+        <div style={{maxHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
             {
                 todolistsItem && tasksTodolistsItem && <Todolist todolist={todolistsItem} tasks={tasksTodolistsItem}/>
             }
-
         </div>
     );
 });

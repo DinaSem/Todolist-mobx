@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react'
 import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
 import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
-import {Button, IconButton} from '@material-ui/core'
+import {Button,IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import {Task} from './Task/Task'
 import {TaskStatuses, TaskType} from '../../../api/todolists-api'
@@ -13,26 +13,19 @@ import {useRootStore} from "../../../app/stores/RootStateContext";
 type PropsType = {
     todolist: TodolistDomainType
     tasks: Array<TaskType>
-    demo?: boolean
 }
 
-export const Todolist = observer(function ({demo = false, ...props}: PropsType) {
-    console.log('Todolist called')
+export const Todolist = observer((props:PropsType) => {
     const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
-    const {authStore} = useRootStore()
 
     useEffect(() => {
-        if (demo) {
-            return
-        }
         taskStore.fetchTasks(props.todolist.id)
-
-    }, [])
+    }, [taskStore, props.todolist.id])
 
     const addTask = useCallback(function (title: string) {
         taskStore.addTask(title,props.todolist.id)
-    }, [taskStore])
+    }, [taskStore,props.todolist.id])
 
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
         todoStore.changeTodolistFilter(todolistId,value)
@@ -62,7 +55,7 @@ export const Todolist = observer(function ({demo = false, ...props}: PropsType) 
         tasksForTodolist = props.tasks.filter(t => t.status === TaskStatuses.Completed)
     }
 
-    return <div>
+    return <div  style={{border:'1px solid black',padding:'10px', background:"white"}}>
         <h3><EditableSpan  value={props.todolist.title} onChange={()=>changeTodolistTitle(props.todolist.id,props.todolist.title)}/>
             <IconButton onClick={()=>removeTodolist(props.todolist.id)} disabled={props.todolist.entityStatus === 'loading'}>
                 <Delete/>

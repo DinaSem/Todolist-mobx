@@ -70,7 +70,7 @@ function App({demo = false}: PropsType) {
                     {status === 'loading' && <LinearProgress/>}
                 </AppBar>
                 <Container fixed>
-                    <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
+                    <Route exact path={'/'} render={() => <TodolistsList/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
                     <Route exact path={'/todolistItem/:todoId'} render={() => <TodolistItem/>}/>
                     <Route exact path={'/todolistItem/:todoId/taskItem/:taskId'} render={() => <TaskItem/>}/>

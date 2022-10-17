@@ -1,10 +1,6 @@
 import {makeAutoObservable} from "mobx";
-import {authAPI, LoginParamsType, todolistsAPI, TodolistType} from "../../api/todolists-api";
-import {createContext, FC, useContext} from "react";
-import React from 'react'
-import {RequestStatusType} from "../app-reducer";
-import {FilterValuesType} from "../../features/TodolistsList/todolists-reducer";
-import {setIsLoggedInAC} from "../../features/Login/auth-reducer";
+import {authAPI, LoginParamsType} from "../../api/todolists-api";
+
 
 type InitialStateType = {
     isLoggedIn: boolean

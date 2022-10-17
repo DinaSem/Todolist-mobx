@@ -2,7 +2,6 @@ import {makeAutoObservable} from "mobx";
 import {todolistsAPI, TodolistType} from "../../api/todolists-api";
 import {RequestStatusType} from "../app-reducer";
 import { FilterValuesType} from "../../features/TodolistsList/todolists-reducer";
-import {useRootStore} from "./RootStateContext";
 
 export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType

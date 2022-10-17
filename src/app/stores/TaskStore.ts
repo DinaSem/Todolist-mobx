@@ -1,14 +1,12 @@
 import {makeAutoObservable} from "mobx";
 import {
-    authAPI,
     TaskPriorities,
     TaskStatuses,
     TaskType,
     todolistsAPI,
     UpdateTaskModelType
 } from "../../api/todolists-api";
-import {createContext, FC, useContext} from "react";
-import React from 'react'
+
 
 // types
 export type TasksStateType = {

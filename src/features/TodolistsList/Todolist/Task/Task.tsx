@@ -1,9 +1,8 @@
-import React, {ChangeEvent, useCallback, useEffect} from 'react'
+import React, {ChangeEvent, useCallback} from 'react'
 import {Checkbox, IconButton} from '@material-ui/core'
 import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
 import {Delete} from '@material-ui/icons'
 import {TaskStatuses, TaskType} from '../../../../api/todolists-api'
-import { Link } from 'react-router-dom'
 import {useRootStore} from "../../../../app/stores/RootStateContext";
 
 type TaskPropsType = {
@@ -12,12 +11,8 @@ type TaskPropsType = {
 }
 export const Task = React.memo((props: TaskPropsType) => {
 
-    const {todoStore} = useRootStore()
     const {taskStore} = useRootStore()
-    const {authStore} = useRootStore()
     // const onClickHandler = useCallback(() => props.removeTask(props.task.id, props.todolistId), [props.task.id, props.todolistId]);
-
-
 
     const removeTask = useCallback(function (id: string, todolistId: string) {
         taskStore.deleteTask(id,todolistId)
@@ -26,7 +21,7 @@ export const Task = React.memo((props: TaskPropsType) => {
     const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         let newIsDoneValue = e.currentTarget.checked
         changeStatus(props.task.id, newIsDoneValue ? TaskStatuses.Completed : TaskStatuses.New, props.todolistId)
-    }, [todoStore, taskStore])
+    }, [props.task.id,props.todolistId])
 
 
     const changeStatus = (id: string, status: TaskStatuses, todolistId: string)=> {
@@ -40,9 +35,10 @@ export const Task = React.memo((props: TaskPropsType) => {
 
     const changeTaskTitle = useCallback( (id: string, title: string, todolistId: string)=> {
         taskStore.updateTask(id, {title},todolistId)
-    }, [props.task.id, props.todolistId])
+    }, [taskStore])
 
     return <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
+
         <Checkbox
             checked={props.task.status === TaskStatuses.Completed}
             color="primary"
