@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
 import {Todolist} from "./Todolist/Todolist";
 import {useRootStore} from "../../app/stores/RootStateContext";
 import {observer} from "mobx-react";
@@ -22,7 +22,9 @@ const TodolistItem = observer(() => {
     return (
         <div style={{maxHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
             {
-                todolistsItem && tasksTodolistsItem && <Todolist todolist={todolistsItem} tasks={tasksTodolistsItem}/>
+                todolistsItem && tasksTodolistsItem
+                ? <Todolist todolist={todolistsItem} tasks={tasksTodolistsItem}/>
+                    :  <Redirect to={"/"} />
             }
         </div>
     );

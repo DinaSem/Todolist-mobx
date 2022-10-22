@@ -12,7 +12,7 @@ import TodolistItem from "../features/TodolistsList/TodolistItem";
 import TaskItem from "../features/TodolistsList/Todolist/Task/TaskItem";
 import {observer} from "mobx-react";
 import { Link } from 'react-router-dom'
-import { Button, Layout} from 'antd';
+import {Breadcrumb, Button, Col, Layout, Menu, Row} from 'antd';
 import {Footer} from 'antd/lib/layout/layout'
 import 'antd/dist/antd.css';
 
@@ -24,7 +24,7 @@ const AppAntD = observer(() => {
     const isInitialized = useSelector<AppRootStateType, boolean>((state) => state.app.isInitialized)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
-    let history = useHistory();
+
 
     useEffect(() => {
         dispatch(initializeAppTC())
@@ -36,6 +36,7 @@ const AppAntD = observer(() => {
     }, [dispatch])
 
 
+
     if (!isInitialized) {
         return <div
             style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
@@ -45,14 +46,24 @@ const AppAntD = observer(() => {
 
     return (<div  style={{minHeight:'100vh',display:'flex', justifyContent:"center",alignItems:'center'}}>
             <Layout className="layout">
-                <Header style={{display:'inline-flex',alignItems:'center'}} >
-                    <div className="logo"/>
-                    <Link to={'/'} style={{color:'white', margin:'0 20px'}}>Home</Link>
+                <Header>
+                    <div className="logo" />
+                    <Row>
+                        <Col span={20}>
+                            <Link to={'/'} style={{color:'white', margin:'0 20px'}}>Home</Link>
 
-                    {isLoggedIn && <Button color="inherit" onClick={logoutHandler}>Log out</Button>}
-
+                        </Col>
+                        <Col span={4}>
+                            {isLoggedIn && <Button color="inherit" onClick={logoutHandler}>Log out</Button>}
+                        </Col>
+                    </Row>
 
                 </Header>
+                <Breadcrumb style={{ margin: '16px 16px' }} >
+                    <Breadcrumb.Item><Link to={'/todolistItem/:todoId/taskItem/:taskId'} >Task</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item><Link to={'/todolistItem/:todoId'} >Todolist</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item><Link to={''} >Home</Link></Breadcrumb.Item>
+                </Breadcrumb>
                 <Content style={{padding: '0 50px',minHeight:'80vh'}}>
                     <div className="site-layout-content">
 
@@ -67,10 +78,7 @@ const AppAntD = observer(() => {
                     </div>
                 </Content>
                 <Footer
-                    style={{
-                        textAlign: 'center',
-                    }}
-                >
+                    style={{textAlign: 'center',}}>
                     Ant Design ©2018 Created by Ant UED
                 </Footer>
             </Layout>
