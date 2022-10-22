@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa760a528a541f60cf5b97d082469f2f",
+    "revision": "f019dcc8c371705fd81e78476db1faec",
     "url": "/Todolost-mobx/index.html"
   },
   {
-    "revision": "378a6c02f6c28d83b9f3",
+    "revision": "312328b7d85ccfb30691",
     "url": "/Todolost-mobx/static/css/2.680bc00d.chunk.css"
   },
   {
-    "revision": "df1408119bd23e54b934",
+    "revision": "eb8592f5ecba7915bff6",
     "url": "/Todolost-mobx/static/css/main.5caf4ceb.chunk.css"
   },
   {
-    "revision": "378a6c02f6c28d83b9f3",
-    "url": "/Todolost-mobx/static/js/2.98060254.chunk.js"
+    "revision": "312328b7d85ccfb30691",
+    "url": "/Todolost-mobx/static/js/2.c1c9b7fc.chunk.js"
   },
   {
     "revision": "a55751acc8d5ac275410381e9843b882",
-    "url": "/Todolost-mobx/static/js/2.98060254.chunk.js.LICENSE.txt"
+    "url": "/Todolost-mobx/static/js/2.c1c9b7fc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "df1408119bd23e54b934",
-    "url": "/Todolost-mobx/static/js/main.77f707a6.chunk.js"
+    "revision": "eb8592f5ecba7915bff6",
+    "url": "/Todolost-mobx/static/js/main.16472529.chunk.js"
   },
   {
     "revision": "c27199895efb42e44fce",

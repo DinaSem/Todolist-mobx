@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Todolost-mobx/precache-manifest.a63f565609d89e8274b30ace86831711.js"
+  "/Todolost-mobx/precache-manifest.4963b1c537d9ee2fafe15bb702949c94.js"
 );
 
 self.addEventListener('message', (event) => {
