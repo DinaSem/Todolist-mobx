@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Todolost-mobx/static/css/main.5caf4ceb.chunk.css",
-    "main.js": "/Todolost-mobx/static/js/main.16472529.chunk.js",
-    "main.js.map": "/Todolost-mobx/static/js/main.16472529.chunk.js.map",
-    "runtime-main.js": "/Todolost-mobx/static/js/runtime-main.86ff9abc.js",
-    "runtime-main.js.map": "/Todolost-mobx/static/js/runtime-main.86ff9abc.js.map",
-    "static/css/2.680bc00d.chunk.css": "/Todolost-mobx/static/css/2.680bc00d.chunk.css",
-    "static/js/2.c1c9b7fc.chunk.js": "/Todolost-mobx/static/js/2.c1c9b7fc.chunk.js",
-    "static/js/2.c1c9b7fc.chunk.js.map": "/Todolost-mobx/static/js/2.c1c9b7fc.chunk.js.map",
-    "index.html": "/Todolost-mobx/index.html",
-    "precache-manifest.4963b1c537d9ee2fafe15bb702949c94.js": "/Todolost-mobx/precache-manifest.4963b1c537d9ee2fafe15bb702949c94.js",
-    "service-worker.js": "/Todolost-mobx/service-worker.js",
-    "static/css/2.680bc00d.chunk.css.map": "/Todolost-mobx/static/css/2.680bc00d.chunk.css.map",
-    "static/css/main.5caf4ceb.chunk.css.map": "/Todolost-mobx/static/css/main.5caf4ceb.chunk.css.map",
-    "static/js/2.c1c9b7fc.chunk.js.LICENSE.txt": "/Todolost-mobx/static/js/2.c1c9b7fc.chunk.js.LICENSE.txt"
+    "main.css": "/Todolist-mobx/static/css/main.5caf4ceb.chunk.css",
+    "main.js": "/Todolist-mobx/static/js/main.122b8ce7.chunk.js",
+    "main.js.map": "/Todolist-mobx/static/js/main.122b8ce7.chunk.js.map",
+    "runtime-main.js": "/Todolist-mobx/static/js/runtime-main.d742ad5b.js",
+    "runtime-main.js.map": "/Todolist-mobx/static/js/runtime-main.d742ad5b.js.map",
+    "static/css/2.680bc00d.chunk.css": "/Todolist-mobx/static/css/2.680bc00d.chunk.css",
+    "static/js/2.51d241eb.chunk.js": "/Todolist-mobx/static/js/2.51d241eb.chunk.js",
+    "static/js/2.51d241eb.chunk.js.map": "/Todolist-mobx/static/js/2.51d241eb.chunk.js.map",
+    "index.html": "/Todolist-mobx/index.html",
+    "precache-manifest.f423f943091f13932b13e7003773af18.js": "/Todolist-mobx/precache-manifest.f423f943091f13932b13e7003773af18.js",
+    "service-worker.js": "/Todolist-mobx/service-worker.js",
+    "static/css/2.680bc00d.chunk.css.map": "/Todolist-mobx/static/css/2.680bc00d.chunk.css.map",
+    "static/css/main.5caf4ceb.chunk.css.map": "/Todolist-mobx/static/css/main.5caf4ceb.chunk.css.map",
+    "static/js/2.51d241eb.chunk.js.LICENSE.txt": "/Todolist-mobx/static/js/2.51d241eb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.86ff9abc.js",
+    "static/js/runtime-main.d742ad5b.js",
     "static/css/2.680bc00d.chunk.css",
-    "static/js/2.c1c9b7fc.chunk.js",
+    "static/js/2.51d241eb.chunk.js",
     "static/css/main.5caf4ceb.chunk.css",
-    "static/js/main.16472529.chunk.js"
+    "static/js/main.122b8ce7.chunk.js"
   ]
 }
